@@ -1,0 +1,22 @@
+arr = [
+{dte: '11/11/2020',code: '01', name: 'principal', amount_due: '1000', amount_paid: '0.00'}
+,{dte: '10/11/2020',code: '01', name: 'principal', amount_due: '1000', amount_paid: '0.00'}
+,{dte: '11/11/2020',code: '02', name: 'interest', amount_due: '1000', amount_paid: '0.00'}
+,{dte: '12/11/2020',code: '02', name: 'interest', amount_due: '1000', amount_paid: '0.00'}
+,{dte: '10/11/2020',code: '02', name: 'interest', amount_due: '1000', amount_paid: '0.00'}
+,{dte: '10/11/2020',code: '03', name: 'penalty', amount_due: '1000', amount_paid: '123'}
+,{dte: '12/11/2020',code: '01', name: 'principal', amount_due: '1000', amount_paid: '0.00'}
+,{dte: '11/11/2020',code: '03', name: 'penalty', amount_due: '1000', amount_paid: '111'}
+,{dte: '12/11/2020',code: '03', name: 'penalty', amount_due: '1000', amount_paid: '0.00'}
+];
+
+const inputSortedByDate = arr.sort((a,b) => Date.parse(a.dte) - Date.parse(b.dte));
+const grouped = groupBy(inputSortedByDate, 'code');
+
+function groupBy(input, key) {
+    return input.reduce((acc, el) => { 
+        acc[el[key]] = acc[el[key]] || [];
+        acc[el[key]].push(el);
+        return acc;
+    }, {});
+}
