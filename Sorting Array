@@ -20,3 +20,21 @@ function groupBy(input, key) {
         return acc;
     }, {});
 }
+
+
+
+
+
+let budgetData = [
+  {title: "Monthly Income", amount: "2500"}, 
+  {title: "rent", amount: "1000"},
+  {title: "car", amount: "200"}
+];
+
+let amount = budgetData[0].amount;
+
+for (let i = 1; i < budgetData.length; i++){ 
+   amount = amount - budgetData[i].amount;
+}
+
+console.log(amount);
