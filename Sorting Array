@@ -38,3 +38,115 @@ for (let i = 1; i < budgetData.length; i++){
 }
 
 console.log(amount);
+
+--------------------------------------------------------------------------------
+let budgetData = [
+  {title: "Monthly Income", amount: "2500"}, 
+  {title: "rent", amount: "1000"},
+  {title: "car", amount: "200"}
+];
+
+let amount = 10000;
+
+for (let i = 0; i < budgetData.length; i++){ 
+   amount = amount - budgetData[i].amount;
+    budgetData[i].amount = amount;
+}
+
+console.log(amount);
+
+----------------------------------------------------------------------------------
+
+let budgetData = [
+  {title: "Monthly Income", amount: "2500"}, 
+  {title: "rent", amount: "1000"},
+  {title: "car", amount: "200"}
+];
+
+let amount = 10000;
+
+for (let i = 0; i < budgetData.length; i++){ 
+   amount = amount - budgetData[i].amount;
+}
+
+console.log(amount);
+
+
+
+----------------------------------------------------------------------------------
+
+let budgetData = [
+  {title: "Monthly Income", due_amount: "2500", amount: "0"}, 
+  {title: "rent", due_amount: "1000",amount: "0"},
+  {title: "car", due_amount: "200",amount: "0"}
+];
+
+let amount = 10000;
+
+for (let i = 0; i < budgetData.length; i++){ 
+   amount = amount - budgetData[i].due_amount;
+   budgetData[i].amount = amount;
+}
+
+console.log(amount);
+
+----------------------------------------------------------------------------------
+
+let budgetData = [
+  {title: "Monthly Income", due_amount: "2500", amount: "0"}, 
+  {title: "rent", due_amount: "1000",amount: "0"},
+  {title: "car", due_amount: "200",amount: "0"}
+];
+
+let amount = 10000;
+
+for (let i = 0; i < budgetData.length; i++){ 
+   amount = amount - budgetData[i].due_amount;
+  budgetData[i].amount = Math.max(0, amount);
+
+}
+
+console.log(amount);
+
+
+
+value = value < 0 ? 0 : value;
+or
+
+if (value < 0) value = 0;
+or
+
+value = Math.max(0, value);
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
