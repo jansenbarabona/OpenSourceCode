@@ -118,11 +118,120 @@ or
 
 value = Math.max(0, value);
 
+--------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+--------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+var dataDates = [{
+    "date": "Nov 28, 2017",
+    "name": "Samuel A. Kidd",
+    "email": "dui.nec@sapienimperdietornare.ca",
+    "address": "944-343 Nec Avenue"
+  },
+  {
+    "date": "May 20, 2015",
+    "name": "Jenna R. Alston",
+    "email": "semper.auctor.Mauris@acrisus.edu",
+    "address": "5316 Mollis Av."
+  },
+  {
+    "date": "Mar 11, 2018",
+    "name": "Magee K. Mcfarland",
+    "email": "Maecenas@egetmollis.co.uk",
+    "address": "Ap #605-1298 Id Rd."
+  },
+  {
+    "date": "Dec 9, 2016",
+    "name": "Claudia V. Campbell",
+    "email": "Donec@semegestas.ca",
+    "address": "Ap #935-7909 Lectus Rd."
+  },
+  {
+    "date": "Aug 4, 2015",
+    "name": "Steven V. Reynolds",
+    "email": "est.ac@ut.net",
+    "address": "Ap #501-8119 Vel, Rd."
+  },
+  {
+    "date": "Mar 25, 2019",
+    "name": "Amy O. Bean",
+    "email": "risus.quis.diam@adipiscingelitEtiam.org",
+    "address": "1855 Euismod Ave"
+  },
+  {
+    "date": "Jan 12, 2019",
+    "name": "Quintessa H. Clay",
+    "email": "arcu.Sed.eu@variusNam.net",
+    "address": "P.O. Box 127, 812 Lobortis Rd."
+  },
+  {
+    "date": "Feb 7, 2015",
+    "name": "Marvin P. Golden",
+    "email": "pellentesque@lobortistellusjusto.org",
+    "address": "P.O. Box 936, 8921 Augue Av."
+  },
+  {
+    "date": "Aug 4, 2015",
+    "name": "Shay Z. Clayton",
+    "email": "sem.egestas@maurisidsapien.org",
+    "address": "5862 Pede St."
+  },
+  {
+    "date": "Feb 12, 2015",
+    "name": "Jin G. Jimenez",
+    "email": "dictum.magna@parturientmontes.org",
+    "address": "4310 Malesuada Av."
+  },
+  {
+    "date": "Feb 10, 2017",
+    "name": "Dawn R. Blackwell",
+    "email": "risus.varius.orci@ipsumdolor.com",
+    "address": "5585 Metus. St."
+  },
+  {
+    "date": "Apr 28, 2015",
+    "name": "Audra A. Gates",
+    "email": "consectetuer.adipiscing@libero.ca",
+    "address": "448-332 Iaculis Ave"
+  },
+  {
+    "date": "May 6, 2018",
+    "name": "Gloria K. Dodson",
+    "email": "mauris.Integer.sem@purusinmolestie.co.uk",
+    "address": "564-3879 Vel, St."
+  },
+  {
+    "date": "Jan 1, 2015",
+    "name": "Inga I. Vinson",
+    "email": "Donec@enimnec.net",
+    "address": "320-4632 Lacus. Road"
+  },
+  {
+    "date": "Jul 21, 2015",
+    "name": "Berk M. Owen",
+    "email": "eros@mi.co.uk",
+    "address": "727 Bibendum Ave"
+  },
+  {
+    "date": "Feb 27, 2016",
+    "name": "Jessica C. Thompson",
+    "email": "Donec@anteNunc.com",
+    "address": "P.O. Box 903, 2394 A, St."
+  }
+];
+var startDate = new Date("2015-08-02");
+var endDate = new Date("2017-08-12");
 
+var resultProductData = dataDates.filter(a => {
+  var date = new Date(a.date);
+  return (date >= startDate && date <= endDate);
+});
+console.log(resultProductData)
 
+--------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+--------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 
-
-
+https://stackoverflow.com/questions/31977724/how-to-filter-json-data-by-date-range-in-javascript
+https://stackoverflow.com/questions/31977724/how-to-filter-json-data-by-date-range-in-javascript
+https://stackoverflow.com/questions/68827571/how-to-filter-json-data-from-api-by-date-range-in-javascript
 
 
 
