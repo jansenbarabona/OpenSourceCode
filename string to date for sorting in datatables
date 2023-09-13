@@ -1,0 +1,8 @@
+$(document).ready( function () {
+  var table = $('#example').DataTable({
+    columnDefs: [{
+        "targets": 1,
+        "type": 'date',
+     }]
+  });
+} );
