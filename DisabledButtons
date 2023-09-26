@@ -43,3 +43,16 @@ switch (day)
     Console.WriteLine("Sunday");
     break;
 }
+
+
+switch (i) {
+case 0:
+   CaseZero();
+   goto case 1;
+case 1:
+   CaseZeroOrOne();
+   goto default;
+default:
+   CaseAny();
+   break;
+}
