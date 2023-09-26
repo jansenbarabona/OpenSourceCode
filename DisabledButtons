@@ -56,3 +56,18 @@ default:
    CaseAny();
    break;
 }
+
+
+
+C Sharp 6.0 has introduced a nice new way to do this:
+
+ public bool YourBool { get; set; } = true;
+This is equivalent to the old way of:
+
+    private bool _yourBool = true;
+
+    public bool YourBool 
+    {
+        get { return _yourBool; }
+        set { _yourBool = value; }
+    }
