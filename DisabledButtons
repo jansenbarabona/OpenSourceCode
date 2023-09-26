@@ -1,0 +1,18 @@
+
+if (type == '<<apply overpayment>>'){
+btnApplyDisabled = false
+btnClientRefundDisabled = true
+btnTransferDisabled = true
+}elseif (type == '<<Client Refund>>'){
+btnApplyDisabled = true
+btnClientRefundDisabled = false
+btnTransferDisabled = true
+}elseif (type == '<<Transfer OP>>'){
+btnApplyDisabled = true
+btnClientRefundDisabled = true
+btnTransferDisabled = false
+}else{
+btnApplyDisabled = false
+btnClientRefundDisabled = false
+btnTransferDisabled = false
+}
