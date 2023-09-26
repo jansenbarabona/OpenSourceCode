@@ -71,3 +71,6 @@ This is equivalent to the old way of:
         get { return _yourBool; }
         set { _yourBool = value; }
     }
+
+
+{if (item.Active == 0){Active = "No";}else{Active = "Yes";}}
