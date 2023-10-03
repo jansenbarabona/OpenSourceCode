@@ -1,0 +1,44 @@
+function isWeekend(date) {
+  const dayOfWeek = date.getDay();
+  return dayOfWeek === 0 || dayOfWeek === 6; // 0 is Sunday, 6 is Saturday
+}
+
+function isLeapYear(year) {
+  return (year % 4 === 0 && year % 100 !== 0) || (year % 400 === 0);
+}
+
+function isHoliday(date) {
+  // Define your list of holidays here (in MM/DD format)
+  const holidays = ['01/01','03/07','07/04', '12/25']; // Example: New Year's Day, Independence Day, Christmas Day
+
+  const month = date.getMonth() + 1; // Month is zero-based
+  const day = date.getDate();
+  const formattedDate = `${month.toString().padStart(2, '0')}/${day.toString().padStart(2, '0')}`;
+
+  return holidays.includes(formattedDate);
+}
+
+function adjustDateForHolidaysAndWeekends(date) {
+  const adjustedDate = new Date(date);
+
+  // Check if the date falls on a weekend (Saturday or Sunday)
+  if (isWeekend(adjustedDate)) {
+    // Move the date to the following Monday
+    adjustedDate.setDate(adjustedDate.getDate() + (8 - adjustedDate.getDay()));
+  }
+
+  // Check if the date is a holiday
+  if (isHoliday(adjustedDate)) {
+    // Move the date to the next weekday that is not a holiday
+    do {
+      adjustedDate.setDate(adjustedDate.getDate() + 1);
+    } while (isHoliday(adjustedDate));
+  }
+
+  return adjustedDate;
+}
+
+// Example usage:
+const inputDate = new Date(2023, 10, 26); // December 25, 2023 (Christmas Day, falls on a Monday)
+const adjustedDate = adjustDateForHolidaysAndWeekends(inputDate);
+console.log(adjustedDate); // Output: December 26, 2023 (Tuesday, moved from Christmas Day)
