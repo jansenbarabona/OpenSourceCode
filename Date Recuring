@@ -1,0 +1,40 @@
+function getLastDayOfMonth(year, month) {
+  return new Date(year, month + 1, 0).getDate();
+}
+
+function generateMonthlySchedule(repeatingDay, startDate, endDate) {
+  const schedule = [];
+  let currentDate = new Date(startDate);
+
+  while (currentDate <= endDate) {
+    const year = currentDate.getFullYear();
+    const month = currentDate.getMonth();
+
+    // Calculate the last day of the current month
+    const lastDayOfMonth = getLastDayOfMonth(year, month);
+
+    // If the specified day is greater than the last day of the month,
+    // adjust to the last day of the month
+    const day = Math.min(repeatingDay, lastDayOfMonth);
+
+    schedule.push({
+      year: year,
+      month: month + 1, // Month is zero-based, so add 1
+      day: day,
+      date: new Date(year, month, day),
+    });
+
+    // Move to the next month
+    currentDate = new Date(year, month + 1, 1);
+  }
+
+  return schedule;
+}
+
+// Example usage:
+const repeatingDay = 31; // The day you want to repeat (e.g., 31)
+const startDate = new Date(2023, 0, 30); // Start date (January 1, 2023)
+const endDate = new Date(2023, 11, 31); // End date (December 31, 2023)
+
+const monthlySchedule = generateMonthlySchedule(repeatingDay, startDate, endDate);
+console.log(monthlySchedule);
