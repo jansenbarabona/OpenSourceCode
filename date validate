@@ -1,0 +1,21 @@
+function getLastDayOfMonth(year, month) {
+  return new Date(year, month + 1, 0).getDate();
+}
+
+function validateMonthlyRepeatingDay(repeatingDay, year, month) {
+  const lastDayOfMonth = getLastDayOfMonth(year, month);
+
+  // If the repeatingDay is greater than the last day of the month,
+  // adjust it to the last day of the month (or minus one if necessary)
+  const validatedDay = Math.min(repeatingDay, lastDayOfMonth);
+
+  return validatedDay;
+}
+
+// Example usage:
+const year = 2023;
+const month = 0; // February (zero-based, so 1 represents February)
+const repeatingDay = 31; // The day you want to repeat (e.g., 31)
+
+const validatedDay = validateMonthlyRepeatingDay(repeatingDay, year, month);
+console.log(`Validated repeating day: ${validatedDay}`);
