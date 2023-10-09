@@ -1,3 +1,13 @@
+function isValidDate(year, month, day) {
+    var d = new Date(year, month, day);
+    if (d.getFullYear() == year && d.getMonth() == month && d.getDate() == day) {
+        return true;
+    }
+    return false;
+}
+if (isValidDate(2013,1,31))
+
+
 /^(?!0{4})\d{4}(\/)(0[1-9]|1[012])(\/)(0[1-9]|1[0-9]|2[0-9]|3[01])$/i,
 
 
