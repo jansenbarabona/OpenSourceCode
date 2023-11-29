@@ -55,6 +55,26 @@ function checkForDuplicates(source) {
 
 ---------------------------------------------------------------------------------------------------------------------------
 
+function checkForDuplicates(source) {
+    const seenValues = new Set();
+    for (let value of source) {
+        const fullName = value.firstName + " " + value.lastName;
+        if (seenValues.has(fullName)) {
+            return true;
+        }
+        seenValues.add(fullName);
+    }
+    return false;
+}
+const arrayOfObjects = [
+  { firstName: "John", lastName: "Doe" },
+  { firstName: "Jane", lastName: "Smith" },
+  { firstName: "John", lastName: "Doe" } // Duplicate entry
+];
+const hasDuplicates = checkForDuplicates(arrayOfObjects);
+console.log(hasDuplicates); // Output: true
+
+---------------------------------------------------------------------------------------------------------------------------
 
 
 https://stackoverflow.com/questions/7376598/in-javascript-how-do-i-check-if-an-array-has-duplicate-values
