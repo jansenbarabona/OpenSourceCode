@@ -1,0 +1,61 @@
+function hasDuplicateNames(arrayOfObjects) {
+  // Create an empty object to store names and check for duplicates
+  const nameMap = {};
+
+  // Iterate through the array of objects
+  for (const obj of arrayOfObjects) {
+    // Extract first and last names from each object
+    const firstName = obj.firstName;
+    const lastName = obj.lastName;
+
+    // Create a unique key by concatenating first and last names
+    const nameKey = `${firstName} ${lastName}`;
+
+    // Check if the key already exists in the nameMap
+    if (nameMap[nameKey]) {
+      // Duplicate names found
+      return true;
+    } else {
+      // If not, mark the key as seen
+      nameMap[nameKey] = true;
+    }
+  }
+
+  // No duplicate names found
+  return false;
+}
+
+// Example usage:
+const arrayOfObjects = [
+  { firstName: "John", lastName: "Doe" },
+  { firstName: "Jane", lastName: "Smith" },
+  { firstName: "John", lastName: "Doe" } // Duplicate entry
+];
+
+const hasDuplicates = hasDuplicateNames(arrayOfObjects);
+console.log(hasDuplicates); // Output: true
+
+--------------------------------------------------------------------------------------------------------------------------
+
+
+function checkForDuplicates(source) {
+    const seenValues = new Set();
+    for (let value of source) {
+        const fullName = value.firstName + " " + value.lastName;
+        if (seenValues.has(fullName)) {
+            return true;
+        }
+        seenValues.add(fullName);
+    }
+    return false;
+}
+
+
+
+
+---------------------------------------------------------------------------------------------------------------------------
+
+
+
+https://stackoverflow.com/questions/7376598/in-javascript-how-do-i-check-if-an-array-has-duplicate-values
+https://dev.to/will_devs/javascript-how-to-check-if-an-array-has-duplicate-values-cha
