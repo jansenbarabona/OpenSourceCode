@@ -1,0 +1,31 @@
+//Binary to files
+
+
+using System;
+using System.IO;
+
+class Program
+{
+    static void Main()
+    {
+        // Sample byte array (replace this with your actual byte array)
+        byte[] byteArray = { 72, 101, 108, 108, 111, 32, 87, 111, 114, 108, 100 };
+
+        // Specify the file path where you want to save the file
+        string filePath = "example.txt";
+
+        // Call the method to convert bytes to a file
+        BytesToFile(byteArray, filePath);
+
+        Console.WriteLine("File created successfully!");
+    }
+
+    static void BytesToFile(byte[] bytes, string filePath)
+    {
+        // Use a FileStream to write the bytes to the file
+        using (FileStream fs = new FileStream(filePath, FileMode.Create))
+        {
+            fs.Write(bytes, 0, bytes.Length);
+        }
+    }
+}
