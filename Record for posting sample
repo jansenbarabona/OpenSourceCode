@@ -1,0 +1,24 @@
+const people = [
+ { name: "Eve", lastName: "Davis", code: "Zh0fjy20" },
+ { name: "Charlie", lastName: "Robinson", code: "ztnx615l" },
+ { name: "Bob", lastName: "Robinson", code: "64FS3prS" },
+ { name: "George", lastName: "Davis", code: "P4papv27" },
+ { name: "George", lastName: "Jones", code: "531D5Ng1" },
+ { name: "Alice", lastName: "Miller", code: "VEL34FtY" },
+ { name: "George", lastName: "Williams", code: "V5pc7Frb" },
+ { name: "Alice", lastName: "Taylor", code: "6No9ii8R" },
+ { name: "George", lastName: "Smith", code: "Dp3E4f7Z" },
+ { name: "Jack", lastName: "Jones", code: "BS5F7Tyv" },
+];
+let outputString = "";
+
+// Loop through each person in the array
+for (const person of people) {
+  // Build the string with each person's information
+  outputString += `${person.name}, ${person.lastName}, (${person.code})\n`;
+}
+
+// Remove the trailing newline character (if desired)
+outputString = outputString.slice(0, -1);
+
+console.log(outputString);
