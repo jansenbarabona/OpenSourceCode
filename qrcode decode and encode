@@ -1,0 +1,39 @@
+async function hashString(input) {
+  const encoder = new TextEncoder();
+  const data = encoder.encode(input);
+  const hashBuffer = await crypto.subtle.digest('SHA-256', data);
+  const hashArray = Array.from(new Uint8Array(hashBuffer));
+  const hashHex = hashArray.map(byte => byte.toString(16).padStart(2, '0')).join('');
+  return hashHex;
+}
+
+// Example
+const inputString = 'Hello, World!';
+hashString(inputString)
+  .then(hash => console.log(`Hash of "${inputString}": ${hash}`))
+  .catch(error => console.error('Error:', error));
+-----------------------------------------------------------------------------------------------------------
+
+async function hashString(input) {
+  // Convert the input string to an array of bytes
+  const encoder = new TextEncoder();
+  const data = encoder.encode(input);
+
+  // Generate the hash value using the SHA-256 algorithm
+  const hashBuffer = await crypto.subtle.digest('SHA-256', data);
+
+  // Convert the hash buffer to a hexadecimal string
+  const hashArray = Array.from(new Uint8Array(hashBuffer));
+  const hashHex = hashArray.map(byte => byte.toString(16).padStart(2, '0')).join('');
+
+  return hashHex;
+}
+
+// Example usage
+const inputString = 'sample whahhahaah';
+hashString(inputString).then(hash => {
+  console.log(`Input: ${inputString}`);
+  console.log(`Hash: ${hash}`);
+});
+
+-----------------------------------------------------------------------------------------------------------
