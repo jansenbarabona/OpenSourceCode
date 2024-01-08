@@ -1,0 +1,28 @@
+// Assuming you have a reference to the ReportViewer control
+var reportViewer = $find('your-reportviewer-id'); // 'your-reportviewer-id' should be replaced with the actual ID of your ReportViewer control
+
+// Trigger the print action
+function printAllPages() {
+    reportViewer.printReport();
+}
+
+// Attach the print function to a button click or any other event
+document.getElementById('print-button').addEventListener('click', printAllPages);
+
+
+
+
+-------------------------------------------------------------------------------------
+
+
+
+// Assuming you have a reference to the RDLC viewer control
+var rdlcViewer = document.getElementById('your-rdlc-viewer-id');
+
+// Trigger the print action
+function printAllPages() {
+    rdlcViewer.printAll();
+}
+
+// Attach the print function to a button click or any other event
+document.getElementById('print-button').addEventListener('click', printAllPages);
