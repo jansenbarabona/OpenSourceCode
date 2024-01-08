@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Print Example</title>
+  <style>
+    /* Regular styles for your content */
+    body {
+      font-family: Arial, sans-serif;
+      margin: 20px;
+    }
+
+    /* Styles for printing */
+    @media print {
+      /* Hide elements not meant for printing */
+      /* body * {
+        display: none;
+      }*/
+
+      /* Display only the element with id="printable-content" */
+      #printable-content {
+        display: block;
+      }
+
+      /* Page break after the element with id="page1" */
+      #page1 {
+        page-break-after: always;
+      }
+
+      /* Page break after the element with id="page2" */
+      #page2 {
+        page-break-after: always;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Your regular content -->
+  <div id="page1">
+    <h1>Page 1</h1>
+    <p>This is the content for page 1. Page break after the element with id="page2" Page break after the element with id="page2" Page break after the element with id="page2" Page break after the element with id="page2" Page break after the element with id="page2"</p>
+  </div>
+
+  <div id="page2">
+    <h1>Page 2</h1>
+    <p>This is the content for page 2. saaaasssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssss</p>
+  </div>
+
+  <!-- The element to be printed -->
+  <div id="printable-content">
+    <!-- Include the content of page 1 and page 2 here if needed -->
+  <!-- Your regular content -->
+  <div id="page1">
+    <h1>Page 1</h1>
+    <p>This is the content for page 1.</p>
+  </div>
+
+  <div id="page2">
+    <h1>Page 2</h1>
+    <p>This is the content for page 2.</p>
+  </div>
+  </div>
+
+  <!-- Button to trigger printing -->
+  <button onclick="printPages()">Print Pages</button>
+
+  <script>
+    function printPages() {
+      window.print();
+    }
+  </script>
+</body>
+</html>
