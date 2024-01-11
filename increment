@@ -1,0 +1,14 @@
+// Example 1
+let number1 = "00001";
+let incrementedNumber1 = String(Number(number1) + 1).padStart(number1.length, '0');
+console.log(incrementedNumber1); // Output: 00002
+
+// Example 2
+let number2 = "00999";
+let incrementedNumber2 = String(Number(number2) + 1).padStart(number2.length, '0');
+console.log(incrementedNumber2); // Output: 01000
+
+// Example 3
+let number3 = "12345";
+let incrementedNumber3 = String(Number(number3) + 1).padStart(number3.length, '0');
+console.log(incrementedNumber3); // Output: 12346
