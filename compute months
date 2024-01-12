@@ -1,0 +1,12 @@
+
+const startDateString = "12/01/2023";
+const endDateString = "12/01/2025";
+
+// Convert date strings to Date objects
+const startDate = new Date(startDateString);
+const endDate = new Date(endDateString);
+
+// Calculate the difference in months
+const monthsDifference = (endDate.getFullYear() - startDate.getFullYear()) * 12 + (endDate.getMonth() - startDate.getMonth());
+
+console.log(monthsDifference);
