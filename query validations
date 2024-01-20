@@ -1,0 +1,80 @@
+query validations
+
+------------------------------------------------------------------------------------------
+using System;
+
+class Program
+{
+    static void Main()
+    {
+        string updateQuery = "UPDATE table_name SET column1 = value1, column2 = value2, ... WHERE condition;";
+
+        if (HasWhereClause(updateQuery))
+        {
+            Console.WriteLine("The update query contains a WHERE clause.");
+        }
+        else
+        {
+            Console.WriteLine("The update query does not contain a WHERE clause.");
+        }
+    }
+
+    static bool HasWhereClause(string query)
+    {
+        // Case-insensitive search for "WHERE" in the query
+        return query.IndexOf("WHERE", StringComparison.OrdinalIgnoreCase) >= 0;
+    }
+}
+------------------------------------------------------------------------------------------
+const sql = require('mssql');
+
+const config = {
+    user: 'your_username',
+    password: 'your_password',
+    server: 'your_server',
+    database: 'your_database',
+    options: {
+        trustServerCertificate: true   // Only for development purposes
+    }
+};
+
+async function updateAllRows() {
+    try {
+        await sql.connect(config);
+
+        const result = await sql.query("UPDATE table_name SET column1 = value1, column2 = value2, ...");
+        console.log(`Rows affected: ${result.rowsAffected}`);
+    } catch (err) {
+        console.error(err);
+    } finally {
+        sql.close();
+    }
+}
+
+updateAllRows();
+------------------------------------------------------------------------------------------
+using System;
+using System.Data.SqlClient;
+
+class Program
+{
+    static void Main()
+    {
+        string connectionString = "your_connection_string_here";
+        string tableName = "your_table_name_here";
+
+        using (SqlConnection connection = new SqlConnection(connectionString))
+        {
+            connection.Open();
+
+            string updateQuery = $"UPDATE {tableName} SET column1 = value1, column2 = value2, ...";
+
+            using (SqlCommand command = new SqlCommand(updateQuery, connection))
+            {
+                int rowsAffected = command.ExecuteNonQuery();
+                Console.WriteLine($"Rows affected: {rowsAffected}");
+            }
+        }
+    }
+}
+
