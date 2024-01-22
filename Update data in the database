@@ -1,0 +1,58 @@
+const mysql = require('mysql');
+
+// Database connection configuration
+const dbConfig = {
+  host: 'your_database_host',
+  user: 'your_username',
+  password: 'your_password',
+  database: 'your_database_name',
+};
+
+// Create a connection to the database
+const connection = mysql.createConnection(dbConfig);
+
+// Connect to the database
+connection.connect((err) => {
+  if (err) {
+    console.error('Error connecting to the database:', err);
+    return;
+  }
+  console.log('Connected to the database');
+});
+
+// Sample data
+const data = [
+  { id: 10, value: "JVBERi0xLjUKJeLjz9MKOSAwIG9iago8PAovRmlsdGVyIC9GbGF0ZURlY29kZQovTGVuZ3RoIDIyODE0Ci9MZW5ndGgxIDU3ODQwCj4+" },
+  { id: 11, value: "JVBERi0xLjUKJeLjz9MKOSAwIG9iago8PAovRmlsdGVyIC9GbGF0ZURlY29kZQovTGVuZ3RoIDIyODE0Ci9MZW5ndGgxIDU3ODQwCj4+" },
+  // Add more data as needed
+];
+
+// Update data in the database
+data.forEach((item) => {
+  const existingValueQuery = 'SELECT value FROM your_table_name WHERE id = ?';
+  const updateQuery = 'UPDATE your_table_name SET value = ? WHERE id = ?';
+
+  // Get existing value from the database
+  connection.query(existingValueQuery, [item.id], (err, results) => {
+    if (err) {
+      console.error('Error retrieving existing value:', err);
+      return;
+    }
+
+    // Combine existing value with new value
+    const existingValue = results[0] ? results[0].value : '';
+    const combinedValue = existingValue + item.value;
+
+    // Update the value in the database
+    connection.query(updateQuery, [combinedValue, item.id], (updateErr, updateResults) => {
+      if (updateErr) {
+        console.error('Error updating data:', updateErr);
+        return;
+      }
+      console.log('Data updated:', updateResults);
+    });
+  });
+});
+
+// Close the database connection
+connection.end();
